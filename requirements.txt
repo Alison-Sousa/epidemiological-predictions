@@ -1,0 +1,132 @@
+#################################################################
+#               ARQUIVO DE DEPENDENCIAS DO PROJETO              #
+#          (Project Requirements and Dependencies File)         #
+#################################################################
+
+Este arquivo descreve todas as bibliotecas e pacotes necessarios para executar os scripts Python e R do projeto de analise de risco de Dengue.
+
+Instale as dependencias listadas para cada ambiente para garantir que o codigo funcione perfeitamente e sem erros.
+
+=================================================================
+#                    DEPENDENCIAS PYTHON                        #
+=================================================================
+
+INSTRUCOES:
+Para instalar todas as bibliotecas Python de uma vez, crie um arquivo na raiz do projeto chamado 'requirements.txt', copie o conteudo da secao "VERSAO CONSOLIDADA PYTHON" para dentro dele e execute no seu terminal:
+pip install -r requirements.txt
+
+---
+# BIBLIOTECAS POR SCRIPT
+---
+
+[code1.py]
+# Funcao: Pre-processamento, juncao de dados, treinamento do modelo LSTM e selecao de variaveis.
+# Bibliotecas a instalar:
+pandas
+numpy
+tensorflow
+scikit-learn
+shap
+
+
+[code2.py]
+# Funcao: Analise dos resultados do modelo, geracao de graficos (AUC) e analise de perfis de cluster.
+# Bibliotecas a instalar:
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+
+
+[code3.py]
+# Funcao: Classificacao final de risco dos municipios e geracao de sumarios quantitativos.
+# Bibliotecas a instalar:
+pandas
+numpy
+
+---
+# VERSAO CONSOLIDADA PARA 'requirements.txt' PYTHON
+---
+# Copie e cole o conteudo abaixo em um arquivo chamado requirements.txt
+
+pandas
+numpy
+tensorflow
+scikit-learn
+shap
+matplotlib
+seaborn
+
+
+=================================================================
+#                       DEPENDENCIAS R                          #
+=================================================================
+
+INSTRUCOES:
+Para instalar todos os pacotes no R de uma vez, abra o console do R ou RStudio e execute o comando que esta na secao "VERSAO CONSOLIDADA R" abaixo.
+
+---
+# PACOTES POR SCRIPT
+---
+
+[clusters.R]
+# Funcao: Geracao de mapas de clusters de risco.
+# Pacotes a instalar:
+sf
+ggplot2
+dplyr
+readr
+
+
+[lisa.R]
+# Funcao: Calculo de I de Moran e analise LISA (hotspots e coldspots).
+# Pacotes a instalar:
+sf
+spdep
+dplyr
+readr
+
+
+[maps.R]
+# Funcao: Criacao de mapas coropleticos do risco previsto.
+# Pacotes a instalar:
+sf
+ggplot2
+dplyr
+readr
+
+
+[panel_southeast.R]
+# Funcao: Analise de correlacao de variaveis para a regiao Sudeste.
+# Pacotes a instalar:
+dplyr
+readr
+corrplot
+
+
+[southeast.R]
+# Funcao: Filtragem e geracao de arquivos de dados especificos da regiao Sudeste.
+# Pacotes a instalar:
+dplyr
+readr
+
+
+[southeast_maps.R]
+# Funcao: Geracao de mapas detalhados para os estados do Sudeste.
+# Pacotes a instalar:
+sf
+ggplot2
+dplyr
+readr
+
+---
+# VERSAO CONSOLIDADA PARA INSTALACAO NO R
+---
+# Copie e cole o comando abaixo no console do R para instalar tudo de uma vez:
+
+install.packages(c("sf", "ggplot2", "dplyr", "readr", "spdep", "corrplot"))
+
+#################################################################
+#                          FIM DO ARQUIVO                       #
+#################################################################

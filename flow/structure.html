@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama da Célula LSTM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" xintegrity="sha384-n8MVd4RsNIU0KOVEMcAqrfxk5c8MLfj/rMVveuYxeq7fI-AufKYNRj2SBr8_bsIY" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" xintegrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .container {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+        }
+        .diagram-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .step {
+            background-color: #f0f9ff;
+            border: 2px solid #bae6fd;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            width: 500px;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .step-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+        .step-content .title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0c4a6e;
+        }
+        .step-content .desc {
+            font-size: 0.9rem;
+            color: #374151;
+            line-height: 1.4;
+        }
+        .op-multiply { background-color: #0284c7; }
+        .op-add { background-color: #082f49; }
+        .op-tanh { background-color: #38bdf8; font-size: 1.2rem; }
+        .op-sigmoid { background-color: #fb923c; }
+        .katex-container { font-size: 1.2rem; color: #075985; }
+        .arrow-down {
+            width: 3px;
+            height: 30px;
+            background-color: #0369a1;
+            position: relative;
+        }
+        .arrow-down::after {
+            content: '';
+            position: absolute;
+            left: -6.5px;
+            bottom: -1px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 12px solid #0369a1;
+        }
+        .equations-list {
+            padding: 1.5rem;
+            width: 450px;
+            flex-shrink: 0;
+        }
+        .equations-list h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #082f49;
+            margin-bottom: 1rem;
+        }
+        .eq-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem; }
+        .print-button {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #0ea5e9;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: background-color 0.2s;
+        }
+        .print-button:hover {
+            background-color: #0284c7;
+        }
+        @media print {
+            body {
+                padding: 0;
+                margin: 0;
+                -webkit-print-color-adjust: exact; /* Força a impressão de cores no Chrome/Safari */
+                print-color-adjust: exact; /* Força a impressão de cores no Firefox/Edge */
+            }
+            .print-button {
+                display: none;
+            }
+            .container {
+                gap: 1rem;
+                width: 100%;
+            }
+            .step, .equations-list {
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button id="printButton" class="print-button">Imprimir como PDF</button>
+    <div class="container">
+        <!-- Coluna do Diagrama -->
+        <div class="diagram-column">
+             <!-- Entradas -->
+            <div class="step" style="width: auto; padding: 1rem 2rem;">
+                <div class="step-content w-full text-center">
+                    <div class="title">Dados de Entrada</div>
+                    <div class="flex justify-around mt-2 gap-8">
+                        <div class="katex-container" id="label_ct_minus_1"></div>
+                        <div class="katex-container" id="label_ht_minus_1"></div>
+                        <div class="katex-container" id="label_xt"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow-down"></div>
+
+            <!-- Passo 1 -->
+            <div class="step">
+                <div class="step-icon op-sigmoid">σ</div>
+                <div class="step-content">
+                    <div class="title">Passo 1: Portão de Esquecimento</div>
+                    <div class="desc">Analisa o estado anterior e a entrada atual para determinar qual informação deve ser descartada da memória da célula.</div>
+                </div>
+            </div>
+            <div class="arrow-down"></div>
+
+            <!-- Passo 2 -->
+            <div class="step">
+                <div class="flex flex-col gap-2">
+                    <div class="step-icon op-sigmoid">σ</div>
+                    <div class="step-icon op-tanh">tanh</div>
+                </div>
+                <div class="step-content">
+                    <div class="title">Passo 2: Portão de Entrada</div>
+                    <div class="desc">Determina quais novas informações são relevantes e devem ser adicionadas ao estado da célula.</div>
+                </div>
+            </div>
+            <div class="arrow-down"></div>
+
+            <!-- Passo 3 -->
+            <div class="step">
+                <div class="step-icon op-add">+</div>
+                <div class="step-content">
+                    <div class="title">Passo 3: Atualizar Memória</div>
+                    <div class="desc">O estado da célula é atualizado ao combinar a memória preexistente (filtrada) com as novas informações candidatas.</div>
+                </div>
+            </div>
+            <div class="arrow-down"></div>
+            
+            <!-- Passo 4 -->
+            <div class="step">
+                 <div class="step-icon op-multiply">×</div>
+                <div class="step-content">
+                    <div class="title">Passo 4: Portão de Saída</div>
+                    <div class="desc">A memória atualizada da célula é processada para gerar o estado oculto (<span class="katex-container inline" id="ann_ht"></span>), que serve como saída para o passo seguinte.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Coluna das Equações -->
+        <div class="equations-list">
+            <h2>Equações da Célula</h2>
+            <div class="eq-item"><strong class="text-lg text-gray-600">1.</strong><div class="katex-container" id="eq_forget"></div></div>
+            <div class="eq-item"><strong class="text-lg text-gray-600">2.</strong><div class="katex-container" id="eq_input"></div></div>
+            <div class="eq-item"><strong class="text-lg text-gray-600">2.1</strong><div class="katex-container" id="eq_candidate"></div></div>
+            <div class="eq-item"><strong class="text-lg text-gray-600">3.</strong><div class="katex-container" id="eq_ct_update"></div></div>
+            <div class="eq-item"><strong class="text-lg text-gray-600">4.</strong><div class="katex-container" id="eq_output"></div></div>
+            <div class="eq-item"><strong class="text-lg text-gray-600">4.1</strong><div class="katex-container" id="eq_ht_update"></div></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const formulas = {
+                'label_ct_minus_1': 'C_{t-1}',
+                'label_ht_minus_1': 'h_{t-1}',
+                'label_xt': 'x_t', 
+                'ann_ht': 'h_t',
+                'eq_forget': 'f_t = \\sigma(W_f \\cdot [h_{t-1}, x_t] + b_f)',
+                'eq_input': 'i_t = \\sigma(W_i \\cdot [h_{t-1}, x_t] + b_i)',
+                'eq_candidate': '\\tilde{C}_t = \\tanh(W_C \\cdot [h_{t-1}, x_t] + b_C)',
+                'eq_ct_update': 'C_t = (f_t \\odot C_{t-1}) + (i_t \\odot \\tilde{C}_t)',
+                'eq_output': 'o_t = \\sigma(W_o \\cdot [h_{t-1}, x_t] + b_o)',
+                'eq_ht_update': 'h_t = o_t \\odot \\tanh(C_t)'
+            };
+            for (const id in formulas) {
+                const element = document.getElementById(id);
+                if (element) {
+                    katex.render(formulas[id], element, { throwOnError: false, output: 'html' });
+                }
+            }
+
+            document.getElementById('printButton').addEventListener('click', function() {
+                window.print();
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,201 @@
+state,cod6,risk_cat,variable,correlation
+ES,320530,Very High,altitude,-0.84
+ES,320530,Very High,tmed_fev,0.82
+ES,320530,Very High,tmed_jan,0.82
+ES,320530,Very High,tmed_mar,0.82
+ES,320530,Very High,tmed_jun,0.8
+ES,320530,Very High,tmed,0.8
+ES,320530,Very High,Abastecimento de Água via Rede de Distribuição,0.79
+ES,320530,Very High,tmed_jul,0.79
+ES,320530,Very High,tmed_nov,0.79
+ES,320530,Very High,tmed_ago,0.78
+ES,320150,Very High,altitude,-0.84
+ES,320150,Very High,tmed_fev,0.82
+ES,320150,Very High,tmed_jan,0.82
+ES,320150,Very High,tmed_mar,0.82
+ES,320150,Very High,tmed_jun,0.8
+ES,320150,Very High,tmed,0.8
+ES,320150,Very High,Abastecimento de Água via Rede de Distribuição,0.79
+ES,320150,Very High,tmed_jul,0.79
+ES,320150,Very High,tmed_nov,0.79
+ES,320150,Very High,tmed_ago,0.78
+ES,320520,Very High,altitude,-0.84
+ES,320520,Very High,tmed_fev,0.82
+ES,320520,Very High,tmed_jan,0.82
+ES,320520,Very High,tmed_mar,0.82
+ES,320520,Very High,tmed_jun,0.8
+ES,320520,Very High,tmed,0.8
+ES,320520,Very High,Abastecimento de Água via Rede de Distribuição,0.79
+ES,320520,Very High,tmed_jul,0.79
+ES,320520,Very High,tmed_nov,0.79
+ES,320520,Very High,tmed_ago,0.78
+ES,320120,Very High,altitude,-0.84
+ES,320120,Very High,tmed_fev,0.82
+ES,320120,Very High,tmed_jan,0.82
+ES,320120,Very High,tmed_mar,0.82
+ES,320120,Very High,tmed_jun,0.8
+ES,320120,Very High,tmed,0.8
+ES,320120,Very High,Abastecimento de Água via Rede de Distribuição,0.79
+ES,320120,Very High,tmed_jul,0.79
+ES,320120,Very High,tmed_nov,0.79
+ES,320120,Very High,tmed_ago,0.78
+ES,320500,Very High,altitude,-0.84
+ES,320500,Very High,tmed_fev,0.82
+ES,320500,Very High,tmed_jan,0.82
+ES,320500,Very High,tmed_mar,0.82
+ES,320500,Very High,tmed_jun,0.8
+ES,320500,Very High,tmed,0.8
+ES,320500,Very High,Abastecimento de Água via Rede de Distribuição,0.79
+ES,320500,Very High,tmed_jul,0.79
+ES,320500,Very High,tmed_nov,0.79
+ES,320500,Very High,tmed_ago,0.78
+MG,310620,Very High,Abastecimento de Água via Rede de Distribuição,0.6
+MG,310620,Very High,Densidade de Telefonia Móvel,0.54
+MG,310620,Very High,Água e Saneamento,0.54
+MG,310620,Very High,Índice de Abastecimento de Água,0.51
+MG,310620,Very High,tmed_nov,0.5
+MG,310620,Very High,tmed_ago,0.49
+MG,310620,Very High,Acesso à Informação e Comunicação,0.49
+MG,310620,Very High,tmed_out,0.49
+MG,310620,Very High,tmed_set,0.49
+MG,310620,Very High,Domicílios com Coleta de Resíduos Adequada,0.48
+MG,317020,Very High,Abastecimento de Água via Rede de Distribuição,0.6
+MG,317020,Very High,Densidade de Telefonia Móvel,0.54
+MG,317020,Very High,Água e Saneamento,0.54
+MG,317020,Very High,Índice de Abastecimento de Água,0.51
+MG,317020,Very High,tmed_nov,0.5
+MG,317020,Very High,tmed_ago,0.49
+MG,317020,Very High,Acesso à Informação e Comunicação,0.49
+MG,317020,Very High,tmed_out,0.49
+MG,317020,Very High,tmed_set,0.49
+MG,317020,Very High,Domicílios com Coleta de Resíduos Adequada,0.48
+MG,312770,Very High,Abastecimento de Água via Rede de Distribuição,0.6
+MG,312770,Very High,Densidade de Telefonia Móvel,0.54
+MG,312770,Very High,Água e Saneamento,0.54
+MG,312770,Very High,Índice de Abastecimento de Água,0.51
+MG,312770,Very High,tmed_nov,0.5
+MG,312770,Very High,tmed_ago,0.49
+MG,312770,Very High,Acesso à Informação e Comunicação,0.49
+MG,312770,Very High,tmed_out,0.49
+MG,312770,Very High,tmed_set,0.49
+MG,312770,Very High,Domicílios com Coleta de Resíduos Adequada,0.48
+MG,313670,Very High,Abastecimento de Água via Rede de Distribuição,0.6
+MG,313670,Very High,Densidade de Telefonia Móvel,0.54
+MG,313670,Very High,Água e Saneamento,0.54
+MG,313670,Very High,Índice de Abastecimento de Água,0.51
+MG,313670,Very High,tmed_nov,0.5
+MG,313670,Very High,tmed_ago,0.49
+MG,313670,Very High,Acesso à Informação e Comunicação,0.49
+MG,313670,Very High,tmed_out,0.49
+MG,313670,Very High,tmed_set,0.49
+MG,313670,Very High,Domicílios com Coleta de Resíduos Adequada,0.48
+MG,317010,Very High,Abastecimento de Água via Rede de Distribuição,0.6
+MG,317010,Very High,Densidade de Telefonia Móvel,0.54
+MG,317010,Very High,Água e Saneamento,0.54
+MG,317010,Very High,Índice de Abastecimento de Água,0.51
+MG,317010,Very High,tmed_nov,0.5
+MG,317010,Very High,tmed_ago,0.49
+MG,317010,Very High,Acesso à Informação e Comunicação,0.49
+MG,317010,Very High,tmed_out,0.49
+MG,317010,Very High,tmed_set,0.49
+MG,317010,Very High,Domicílios com Coleta de Resíduos Adequada,0.48
+RJ,330455,Very High,tmed_jan,0.67
+RJ,330455,Very High,altitude,-0.67
+RJ,330455,Very High,tmed_fev,0.66
+RJ,330455,Very High,tmed_nov,0.66
+RJ,330455,Very High,tmed_ago,0.65
+RJ,330455,Very High,tmed,0.65
+RJ,330455,Very High,tmed_mar,0.65
+RJ,330455,Very High,tmed_set,0.65
+RJ,330455,Very High,tmed_out,0.65
+RJ,330455,Very High,tmed_jul,0.64
+RJ,330285,Very High,tmed_jan,0.67
+RJ,330285,Very High,altitude,-0.67
+RJ,330285,Very High,tmed_fev,0.66
+RJ,330285,Very High,tmed_nov,0.66
+RJ,330285,Very High,tmed_ago,0.65
+RJ,330285,Very High,tmed,0.65
+RJ,330285,Very High,tmed_mar,0.65
+RJ,330285,Very High,tmed_set,0.65
+RJ,330285,Very High,tmed_out,0.65
+RJ,330285,Very High,tmed_jul,0.64
+RJ,330330,Very High,tmed_jan,0.67
+RJ,330330,Very High,altitude,-0.67
+RJ,330330,Very High,tmed_fev,0.66
+RJ,330330,Very High,tmed_nov,0.66
+RJ,330330,Very High,tmed_ago,0.65
+RJ,330330,Very High,tmed,0.65
+RJ,330330,Very High,tmed_mar,0.65
+RJ,330330,Very High,tmed_set,0.65
+RJ,330330,Very High,tmed_out,0.65
+RJ,330330,Very High,tmed_jul,0.64
+RJ,330350,Very High,tmed_jan,0.67
+RJ,330350,Very High,altitude,-0.67
+RJ,330350,Very High,tmed_fev,0.66
+RJ,330350,Very High,tmed_nov,0.66
+RJ,330350,Very High,tmed_ago,0.65
+RJ,330350,Very High,tmed,0.65
+RJ,330350,Very High,tmed_mar,0.65
+RJ,330350,Very High,tmed_set,0.65
+RJ,330350,Very High,tmed_out,0.65
+RJ,330350,Very High,tmed_jul,0.64
+RJ,330452,Very High,tmed_jan,0.67
+RJ,330452,Very High,altitude,-0.67
+RJ,330452,Very High,tmed_fev,0.66
+RJ,330452,Very High,tmed_nov,0.66
+RJ,330452,Very High,tmed_ago,0.65
+RJ,330452,Very High,tmed,0.65
+RJ,330452,Very High,tmed_mar,0.65
+RJ,330452,Very High,tmed_set,0.65
+RJ,330452,Very High,tmed_out,0.65
+RJ,330452,Very High,tmed_jul,0.64
+SP,355030,Very High,Índice de Abastecimento de Água,0.67
+SP,355030,Very High,Água e Saneamento,0.63
+SP,355030,Very High,Abastecimento de Água via Rede de Distribuição,0.63
+SP,355030,Very High,Acesso à Informação e Comunicação,0.56
+SP,355030,Very High,Famílias em Situação de Rua,0.56
+SP,355030,Very High,Fundamentos do Bem-estar,0.53
+SP,355030,Very High,Esgotamento Sanitário Adequado,0.52
+SP,355030,Very High,Cobertura de Internet Móvel (4G/5G),0.51
+SP,355030,Very High,Índice de Progresso Social,0.5
+SP,355030,Very High,tmed_jun,0.47
+SP,350590,Very High,Índice de Abastecimento de Água,0.67
+SP,350590,Very High,Água e Saneamento,0.63
+SP,350590,Very High,Abastecimento de Água via Rede de Distribuição,0.63
+SP,350590,Very High,Acesso à Informação e Comunicação,0.56
+SP,350590,Very High,Famílias em Situação de Rua,0.56
+SP,350590,Very High,Fundamentos do Bem-estar,0.53
+SP,350590,Very High,Esgotamento Sanitário Adequado,0.52
+SP,350590,Very High,Cobertura de Internet Móvel (4G/5G),0.51
+SP,350590,Very High,Índice de Progresso Social,0.5
+SP,350590,Very High,tmed_jun,0.47
+SP,354850,Very High,Índice de Abastecimento de Água,0.67
+SP,354850,Very High,Água e Saneamento,0.63
+SP,354850,Very High,Abastecimento de Água via Rede de Distribuição,0.63
+SP,354850,Very High,Acesso à Informação e Comunicação,0.56
+SP,354850,Very High,Famílias em Situação de Rua,0.56
+SP,354850,Very High,Fundamentos do Bem-estar,0.53
+SP,354850,Very High,Esgotamento Sanitário Adequado,0.52
+SP,354850,Very High,Cobertura de Internet Móvel (4G/5G),0.51
+SP,354850,Very High,Índice de Progresso Social,0.5
+SP,354850,Very High,tmed_jun,0.47
+SP,355670,Very High,Índice de Abastecimento de Água,0.67
+SP,355670,Very High,Água e Saneamento,0.63
+SP,355670,Very High,Abastecimento de Água via Rede de Distribuição,0.63
+SP,355670,Very High,Acesso à Informação e Comunicação,0.56
+SP,355670,Very High,Famílias em Situação de Rua,0.56
+SP,355670,Very High,Fundamentos do Bem-estar,0.53
+SP,355670,Very High,Esgotamento Sanitário Adequado,0.52
+SP,355670,Very High,Cobertura de Internet Móvel (4G/5G),0.51
+SP,355670,Very High,Índice de Progresso Social,0.5
+SP,355670,Very High,tmed_jun,0.47
+SP,354980,Very High,Índice de Abastecimento de Água,0.67
+SP,354980,Very High,Água e Saneamento,0.63
+SP,354980,Very High,Abastecimento de Água via Rede de Distribuição,0.63
+SP,354980,Very High,Acesso à Informação e Comunicação,0.56
+SP,354980,Very High,Famílias em Situação de Rua,0.56
+SP,354980,Very High,Fundamentos do Bem-estar,0.53
+SP,354980,Very High,Esgotamento Sanitário Adequado,0.52
+SP,354980,Very High,Cobertura de Internet Móvel (4G/5G),0.51
+SP,354980,Very High,Índice de Progresso Social,0.5
+SP,354980,Very High,tmed_jun,0.47

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --c1: #0077b6;
+            --c2: #90e0ef; 
+            --c3: #00b4d8; 
+            --c4: #6c757d; 
+            --bg-light: #f0f9ff; 
+            --border-main: #0284c7;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        
+        #page-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stage-box {
+            border: 2px solid var(--border-main);
+            background-color: var(--bg-light);
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stage-title {
+            color: var(--c1);
+            font-weight: 700;
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--c2);
+            padding-bottom: 0.6rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        }
+        
+        .info-item svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.6rem;
+            flex-shrink: 0;
+            color: var(--c1);
+        }
+        
+        .info-item .font-semibold { font-size: 0.8rem; }
+        .info-item .text-xs { font-size: 0.75rem; }
+
+
+        .block {
+            border: 1px solid var(--c4);
+            background-color: white;
+            border-radius: 0.25rem;
+            padding: 0.35rem 0.6rem;
+            text-align: center;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        }
+
+        .formula-text {
+            color: var(--c4);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem; /* Aumentado */
+            text-align: center;
+            background-color: #f1f5f9;
+            padding: 0.4rem;
+            border-radius: 0.25rem;
+        }
+
+        .data-matrix {
+            display: grid;
+            border: 1px solid #cbd5e1;
+        }
+        .data-matrix .cell {
+            border: 1px solid #cbd5e1;
+            padding: 0.2rem 0.4rem; 
+            font-size: 0.9rem; 
+            font-family: 'Fira Code', monospace;
+            text-align: center;
+        }
+        .data-matrix .header-cell {
+            background-color: #e0f2fe;
+            font-weight: 600;
+            color: var(--c1);
+        }
+
+        #arrow-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .grid-container {
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <div id="page-container">
+        <div id="content-to-print" class="bg-white p-6">
+            <div id="diagram-container" class="grid-container" style="width: 1100px;">
+                <div class="grid grid-cols-2 gap-x-12 gap-y-12">
+
+                    <div id="box-tl" class="stage-box">
+                        <h2 class="stage-title">1. Data Preparation</h2>
+                        <div class="flex flex-col items-center justify-center space-y-2 flex-grow">
+                            <div class="info-item w-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.5v3.75c0 1.027.845 1.99 1.976 2.084 1.327.11 2.669.166 4.024.166m0 0c1.355 0 2.697-.056 4.024-.166C17.155 16.24 18 15.277 18 14.25v-3.75c0-1.027-.845-1.99-1.976-2.084A48.423 48.423 0 0 0 12 8.25Z" /></svg>
+                                <div><p class="font-semibold text-slate-800">Epidemiological Data</p><p class="text-xs text-slate-500">Dengue Cases</p></div>
+                            </div>
+                            <div class="info-item w-full">
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18h18a2.25 2.25 0 0 1 2.25 2.25v10.5A2.25 2.25 0 0 1 19.5 18.75H4.5A2.25 2.25 0 0 1 2.25 16.5V4.5A2.25 2.25 0 0 1 4.5 3Z" /></svg>
+                                <div><p class="font-semibold text-slate-800">Socioeconomic Variables</p><p class="text-xs text-slate-500">GDP per capita, social progress, access to information, vaccination coverage, adequate housing, waste collection, sanitation, etc.</p></div>
+                            </div>
+                             <div class="info-item w-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.287 8.287 0 0 0 3-2.55m-3 2.55a8.285 8.285 0 0 1 3-2.55m0 0a8.285 8.285 0 0 1 3 2.55m-3-2.55v-2.175a3.375 3.375 0 0 1 6.75 0v2.175a8.26 8.26 0 0 1-6.75 0Z" /></svg>
+                                <div><p class="font-semibold text-slate-800">Environmental Variables</p><p class="text-xs text-slate-500">Monthly temperature, precipitation, elevation, Köppen, etc.</p></div>
+                            </div>
+                            <div class="text-xl my-1 text-slate-400">↓</div>
+                             <div class="info-item w-full !bg-blue-50 border-blue-200">
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" /></svg>
+                                <div><p class="font-semibold text-slate-800">Cleaning & Normalization</p><p class="text-xs text-slate-500">Unified by IBGE code, imputed missing values, MinMax Scaling</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="box-tr" class="stage-box">
+                        <h2 class="stage-title">2. Data Structuring for Modeling</h2>
+                        <div class="flex flex-col items-center justify-center space-y-3 flex-grow">
+                            <div class="flex flex-col items-center">
+                                <div class="data-matrix" style="grid-template-columns: repeat(3, auto);">
+                                    <div class="cell header-cell">ID</div><div class="cell header-cell">t</div><div class="cell header-cell">v₁..vₙ</div>
+                                    <div class="cell">i₁</div><div class="cell">t₁</div><div class="cell">0.5...</div>
+                                    <div class="cell">...</div><div class="cell">...</div><div class="cell">...</div>
+                                </div>
+                                <p class="font-medium text-sm text-slate-600 mt-2">Longitudinal Panel Data</p>
+                            </div>
+                             <div class="text-xl text-slate-400">↓</div>
+                             <div class="flex items-center space-x-2">
+                                <div class="flex flex-col items-center">
+                                   <div class="data-matrix" style="grid-template-columns: auto;">
+                                        <div class="cell header-cell">v₁..vₙ</div><div class="cell">x&#x208D;t&#x208B;₁&#x208E;, &#x208D;₁..&#x2099;&#x208E;</div>
+                                        <div class="cell">...</div><div class="cell">x&#x209C;, &#x208D;₁..&#x2099;&#x208E;</div>
+                                    </div>
+                                </div>
+                                <div class="text-xl font-bold text-slate-500">+</div>
+                                <div class="block !border-c1 !bg-blue-50 !text-c1 font-semibold">y&#x1D62; (Target)</div>
+                            </div>
+                             <p class="font-medium text-sm text-slate-600 mt-2">Time Series Sequences per Municipality</p>
+                        </div>
+                    </div>
+
+                    <div id="box-bl" class="stage-box">
+                          <h2 class="stage-title">4. Clustering</h2>
+                          <div class="flex flex-col justify-center space-y-2 flex-grow">
+                            <div class="info-item w-full">
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.5-11.498a4.5 4.5 0 0 0-8.998 0A4.5 4.5 0 0 0 9 18.75m11.085-5.335a4.502 4.502 0 0 0-8.356.985A4.5 4.5 0 0 0 9 18.75m11.085-5.335a4.5 4.5 0 0 0-1.242-3.318 4.5 4.5 0 0 0-6.364 0A4.5 4.5 0 0 0 9 18.75m11.085-5.335-2.251 2.251" /></svg>
+                                <div><p class="font-semibold text-slate-800">Spatial Autocorrelation</p><p class="text-xs text-slate-500">Moran's I for risk clusters</p></div>
+                            </div>
+                            <div class="info-item w-full">
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>
+                                <div><p class="font-semibold text-slate-800">Hotspot Analysis (LISA Maps)</p><p class="text-xs text-slate-500">Identification of critical areas</p></div>
+                            </div>
+                            <div class="info-item w-full">
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5v2.25m0-2.25l2.25 1.313M4.5 12l2.25 1.313M4.5 12v2.25m0-2.25l-2.25 1.313M12 3l2.25 1.313M12 3v2.25m0-2.25L9.75 4.313M12 3.012a2.25 2.25 0 0 1 2.25 2.25v.013M12 3.012a2.25 2.25 0 0 0-2.25 2.25v.013M9.75 4.313l2.25 1.313M9.75 4.313v2.25m0-2.25L7.5 5.625m2.25 1.313l2.25 1.313m0 0l2.25 1.313m-4.5-1.313L9.75 9.75m2.25-1.313L12 12m0 0l2.25-1.313m-2.25 1.313L9.75 12m2.25 1.313l2.25 1.313M12 12v2.25m0-2.25L9.75 13.313m2.25-1.313L12 15m0 0l2.25-1.313m-2.25 1.313L9.75 15m2.25 1.313l2.25 1.313M12 15v2.25m0-2.25L9.75 16.313m2.25-1.313L12 18m0 0l2.25-1.313m-2.25 1.313L9.75 18m-2.25-1.313l-2.25-1.313m0 0L3 15m2.25-1.313L7.5 12m-3 2.25L7.5 15m-3-2.25V15m2.25-1.313L4.5 12m0 0l-2.25-1.313M19.5 12l-2.25 1.313M19.5 12v2.25m0-2.25l2.25 1.313M19.5 12l-2.25-1.313m-2.25 1.313l-2.25 1.313m0 0L12 15m2.25-1.313L12 12m2.25 1.313l-2.25 1.313M16.5 15l-2.25 1.313M16.5 15v2.25m0-2.25l2.25 1.313m-2.25-1.313L12 18m4.5-3-2.25 1.313" /></svg>
+                                <div><p class="font-semibold text-slate-800">K-Means Clustering</p><p class="text-xs text-slate-500">Grouping municipalities by risk profile</p></div>
+                            </div>
+                         </div>
+                    </div>
+
+                    <div id="box-br" class="stage-box">
+                         <h2 class="stage-title">3. LSTM</h2>
+                         <div class="relative p-2 flex flex-col items-center justify-center w-full flex-grow">
+                            <div class="grid grid-cols-2 gap-x-4 w-full">
+                                <div id="lstm-initial" class="block">Initial LSTM Network</div>
+                                <div id="shap" class="block">Feature Selection</div>
+                            </div>
+                            <p class="formula-text my-3 w-full" id="formula">C&#x209C; = f&#x209C; &#x2299; C&#x209C;&#x208B;₁ + i&#x209C; &#x2299; C&#x303; &#x209C;</p>
+                            <div class="grid grid-cols-2 gap-x-4 w-full">
+                                <div id="lstm-final" class="block">Final LSTM Network</div>
+                                <div id="cv" class="block">Cross-Validation (k=5)</div>
+                            </div>
+                            <svg id="internal-arrows" class="absolute top-0 left-0 w-full h-full pointer-events-none">
+                                <defs><marker id="arrowhead-internal" markerWidth="5" markerHeight="3.5" refX="4" refY="1.75" orient="auto"><polygon points="0 0, 5 1.75, 0 3.5" fill="black" /></marker></defs>
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <svg id="arrow-svg">
+                    <defs><marker id="arrowhead-main" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="black" /></marker></defs>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function drawArrows() {
+            const container = document.getElementById('diagram-container');
+            if (!container) return;
+            const svg = document.getElementById('arrow-svg');
+            svg.innerHTML = svg.querySelector('defs').outerHTML;
+
+            const boxes = {
+                tl: document.getElementById('box-tl'),
+                tr: document.getElementById('box-tr'),
+                bl: document.getElementById('box-bl'),
+                br: document.getElementById('box-br'),
+            };
+
+            const containerRect = container.getBoundingClientRect();
+
+            function getBoxCoords(box) {
+                if (!box) return null;
+                const rect = box.getBoundingClientRect();
+                return {
+                    top: rect.top - containerRect.top + window.scrollY,
+                    bottom: rect.bottom - containerRect.top + window.scrollY,
+                    left: rect.left - containerRect.left + window.scrollX,
+                    right: rect.right - containerRect.left + window.scrollX,
+                    centerX: rect.left - containerRect.left + window.scrollX + rect.width / 2,
+                    centerY: rect.top - containerRect.top + window.scrollY + rect.height / 2,
+                };
+            }
+
+            const coords = {
+                tl: getBoxCoords(boxes.tl),
+                tr: getBoxCoords(boxes.tr),
+                bl: getBoxCoords(boxes.bl),
+                br: getBoxCoords(boxes.br),
+            };
+
+            const drawLine = (p1, p2) => {
+                if (!p1 || !p2) return;
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', p1.x); line.setAttribute('y1', p1.y);
+                line.setAttribute('x2', p2.x); line.setAttribute('y2', p2.y);
+                line.setAttribute('stroke', 'black');
+                line.setAttribute('stroke-width', '3');
+                line.setAttribute('marker-end', 'url(#arrowhead-main)');
+                svg.appendChild(line);
+            };
+            
+            drawLine({x: coords.tl.right, y: coords.tl.centerY}, {x: coords.tr.left, y: coords.tr.centerY});
+            drawLine({x: coords.tr.centerX, y: coords.tr.bottom}, {x: coords.br.centerX, y: coords.br.top});
+            drawLine({x: coords.br.left, y: coords.br.centerY}, {x: coords.bl.right, y: coords.bl.centerY});
+        }
+
+        function drawInternalArrows() {
+            const container = document.querySelector('#box-br .relative');
+            if (!container) return;
+            const svg = document.getElementById('internal-arrows');
+            svg.innerHTML = svg.querySelector('defs').outerHTML;
+
+            const elements = {
+                initial: document.getElementById('lstm-initial'),
+                shap: document.getElementById('shap'),
+                final: document.getElementById('lstm-final'),
+                cv: document.getElementById('cv'),
+            };
+            
+            const containerRect = container.getBoundingClientRect();
+
+            function getElemCoords(elem) {
+                if (!elem) return null;
+                const rect = elem.getBoundingClientRect();
+                return {
+                    top: rect.top - containerRect.top, bottom: rect.bottom - containerRect.top,
+                    left: rect.left - containerRect.left, right: rect.right - containerRect.left,
+                    centerX: (rect.left - containerRect.left) + rect.width / 2,
+                    centerY: (rect.top - containerRect.top) + rect.height / 2,
+                };
+            }
+            
+            const coords = {
+                initial: getElemCoords(elements.initial), shap: getElemCoords(elements.shap),
+                final: getElemCoords(elements.final), cv: getElemCoords(elements.cv),
+            };
+            
+            const drawLine = (p1, p2) => {
+                if (!p1 || !p2) return;
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', p1.x); line.setAttribute('y1', p1.y);
+                line.setAttribute('x2', p2.x); line.setAttribute('y2', p2.y);
+                line.setAttribute('stroke', 'black');
+                line.setAttribute('stroke-width', '1.5');
+                line.setAttribute('marker-end', 'url(#arrowhead-internal)');
+                svg.appendChild(line);
+            };
+
+            drawLine({x: coords.initial.right, y: coords.initial.centerY}, {x: coords.shap.left, y: coords.shap.centerY});
+            drawLine({x: coords.initial.centerX, y: coords.initial.bottom}, {x: coords.final.centerX, y: coords.final.top});
+            drawLine({x: coords.shap.centerX, y: coords.shap.bottom}, {x: coords.cv.centerX, y: coords.cv.top});
+            drawLine({x: coords.final.right, y: coords.final.centerY}, {x: coords.cv.left, y: coords.cv.centerY});
+        }
+        
+        const debounce = (func, delay) => {
+            let timeout;
+            return (...args) => {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), delay);
+            };
+        };
+
+        const redrawAll = () => {
+            setTimeout(() => {
+                drawArrows();
+                drawInternalArrows();
+            }, 50);
+        };
+
+        window.addEventListener('load', () => {
+            redrawAll();
+        });
+        window.addEventListener('resize', debounce(redrawAll, 100));
+    </script>
+
+</body>
+</html>
