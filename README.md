@@ -28,7 +28,7 @@ O projeto está organizado nas seguintes pastas:
 
 ### Detalhamento das Pastas
 
-📂 **`.venv/`**: Diretório do ambiente virtual Python.
+📂 **`.venv/`**: Diretório do ambiente virtual Python. Devido ao tamanho, não foi incluído no repositório; o autor pode disponibilizá-lo mediante solicitação.
 
 📂 **`code/`**: Contém todos os scripts utilizados na análise.
 -   `code/Python/`: Scripts em Python para pré-processamento, treinamento do modelo LSTM e clusterização.
