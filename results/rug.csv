@@ -1,6 +1,6 @@
-pbin,count
-a,690
-b,1277
-c,1597
-d,1209
-e,745
+risk_category,count
+Very Low,690
+Low,1277
+Medium,1597
+High,1209
+Very High,745
